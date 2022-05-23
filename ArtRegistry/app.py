@@ -67,7 +67,7 @@ def pin_appraisal_report(report_content):
     return report_ipfs_hash
 
 
-st.title("Art Registry Appraisal System")
+st.title("NFT Art Registry System")
 st.write("Choose an account to get started")
 accounts = w3.eth.accounts
 address = st.selectbox("Select Account", options=accounts)
@@ -76,7 +76,7 @@ st.markdown("---")
 ################################################################################
 # Register New Artwork
 ################################################################################
-st.markdown("## Register New Artwork")
+st.markdown("## Register New NFT Artwork")
 artwork_name = st.text_input("Enter the name of the artwork")
 artist_name = st.text_input("Enter the artist name")
 initial_appraisal_value = st.text_input("Enter the initial appraisal amount")

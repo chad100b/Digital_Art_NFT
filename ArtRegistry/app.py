@@ -98,29 +98,40 @@ if st.button("Register Artwork"):
     st.markdown(f"[Artwork IPFS Gateway Link](https://ipfs.io/ipfs/{artwork_ipfs_hash})")
 st.markdown("---")
 
+################################################################################
+# Display Registered Art
+################################################################################
+st.markdown("## Registered NFT Artwork")
+st.markdown("Luna Leon")
+st.image("https://ipfs.io/ipfs/QmQJm7dMYoruYZg7iK82i1iKYnAdfhtorRKBZsn8A1ya42", width=300)
+st.markdown("NFT:  {'name':'Luna Leon','image':'ipfs.io/ipfs/QmQJm7dMYoruYZg7iK82i1iKYnAdfhtorRKBZsn8A1ya42'}")
+st.markdown("TokenID: 0")
+
+st.markdown("Blue Eyes")
+st.image("https://ipfs.io/ipfs/QmNor6mGAXfbenwy9v7VBtCT4cyQrZ8pSbujeQe26itZfq", width=300)
+st.markdown("NFT:  {'name':'Blue Eyes','image':'ipfs.io/ipfs/QmNor6mGAXfbenwy9v7VBtCT4cyQrZ8pSbujeQe26itZfq'}")
+st.markdown("TokenID: 1")
+
+st.markdown("Red Eyes")
+st.image("https://ipfs.io/ipfs/QmYqWZF5HVTZ26wW846qYnv2QCsSCSofcuypP4QC3ZyjRQ", width=300)
+st.markdown("NFT:  {'name':'Red Eyes','image':'ipfs.io/ipfs/QmYqWZF5HVTZ26wW846qYnv2QCsSCSofcuypP4QC3ZyjRQ'}")
+st.markdown("TokenID: 2")
+
+st.markdown("Phoenix")
+st.image("https://ipfs.io/ipfs/QmVouVJ8fbTFMhqqi2NfJMgMLfmrLmWUxCrpU8UhH561ZR", width=300)
+st.markdown("NFT:  {'name':'Phoenix','image':'ipfs.io/ipfs/QmVouVJ8fbTFMhqqi2NfJMgMLfmrLmWUxCrpU8UhH561ZR'}")
+st.markdown("TokenID: 3")
 
 ################################################################################
-# Appraise Art
+# Transfer Artwork from owner to new wallet
 ################################################################################
-st.markdown("## Appraise Artwork")
-tokens = contract.functions.totalSupply().call()
-token_id = st.selectbox("Choose an Art Token ID", list(range(tokens)))
-new_appraisal_value = st.text_input("Enter the new appraisal amount")
-appraisal_report_content = st.text_area("Enter details for the Appraisal Report")
-if st.button("Appraise Artwork"):
+st.markdown("## Transfer Artwork")
+owner_address = st.text_input("Enter Artwork Owner Address")
+transfer_address = st.text_input("Enter Address to Transfer Artwork")
+token_URI = st.text_input("Enter Token URI")
 
-    # Use Pinata to pin an appraisal report for the report URI
-    appraisal_report_ipfs_hash =  pin_appraisal_report(appraisal_report_content)
-    report_uri = f"ipfs://{appraisal_report_ipfs_hash}"
+# if st.button("Transfer"):
 
-    # Use the token_id and the report_uri to record the appraisal
-    tx_hash = contract.functions.newAppraisal(
-        token_id,
-        int(new_appraisal_value),
-        report_uri
-    ).transact({"from": w3.eth.accounts[0]})
-    receipt = w3.eth.waitForTransactionReceipt(tx_hash)
-    st.write(receipt)
 st.markdown("---")
 
 ################################################################################

@@ -60,7 +60,6 @@ def pin_artwork(artwork_name, artwork_file):
 
     return json_ipfs_hash
 
-
 def pin_appraisal_report(report_content):
     json_report = convert_data_to_json(report_content)
     report_ipfs_hash = pin_json_to_ipfs(json_report)
@@ -128,37 +127,9 @@ st.markdown("TokenID: 3")
 st.markdown("## Transfer Artwork")
 owner_address = st.text_input("Enter Artwork Owner Address")
 transfer_address = st.text_input("Enter Address to Transfer Artwork")
-token_URI = st.text_input("Enter Token URI")
-
-# if st.button("Transfer"):
-
+tokenId = st.number_input("Enter TokenID", min_value=0, value=0, step=1)
+if st.button("Transfer NFT"):
+    transferFrom = contract.functions.transferFrom(owner_address, transfer_address, tokenId).transact({'from': owner_address, 'gas': 1000000})
+    st.write(transferFrom)
 st.markdown("---")
 
-################################################################################
-# Get Appraisals
-################################################################################
-st.markdown("## Get the appraisal report history")
-art_token_id = st.number_input("Artwork ID", value=0, step=1)
-if st.button("Get Appraisal Reports"):
-    appraisal_filter = contract.events.Appraisal.createFilter(
-        fromBlock=0, argument_filters={"tokenId": art_token_id}
-    )
-    reports = appraisal_filter.get_all_entries()
-    if reports:
-        for report in reports:
-            report_dictionary = dict(report)
-            st.markdown("### Appraisal Report Event Log")
-            st.write(report_dictionary)
-            st.markdown("### Pinata IPFS Report URI")
-            report_uri = report_dictionary["args"]["reportURI"]
-            report_ipfs_hash = report_uri[7:]
-            st.markdown(
-                f"The report is located at the following URI: "
-                f"{report_uri}"
-            )
-            st.write("You can also view the report URI with the following ipfs gateway link")
-            st.markdown(f"[IPFS Gateway Link](https://ipfs.io/ipfs/{report_ipfs_hash})")
-            st.markdown("### Appraisal Event Details")
-            st.write(report_dictionary["args"])
-    else:
-        st.write("This artwork has no new appraisals")

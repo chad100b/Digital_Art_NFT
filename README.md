@@ -64,6 +64,10 @@ The following development was performed to complete the project:
 ![JSON NFT](Images/JSON_NFT.png)
 ![Pinata](Images/Pinata_jsonNFT.png)
 
+* Display Artwork on Streamlit Front-End UI
+
+![Display Artwork](Images/Registered_NFT_Artwork.png)
+
 * Successful Transfer of ART Token on Streamlit Front-End UI
 
 ![Transfer Hash](Images/Transfer_Hash.png)

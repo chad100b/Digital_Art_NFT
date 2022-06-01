@@ -17,9 +17,9 @@ The following files are associated with the Art NFT project:
 
 [Solidity Smart Contract](./ArtRegistry/contracts/ArtRegistry.sol)
 
-[Solidity Smart Contract](./ArtRegistry/app.py)
+[JSON/IPFS Functions](./ArtRegistry/pinata.py)
 
-[Solidity Smart Contract](./ArtRegistry/pinata.py)
+[Streamlit Front-End](./ArtRegistry/app.py)
 
 [Deployed Smart Contract ABI File](./ArtRegistry/contracts/compiled/artregistry_abi.json)
 
@@ -45,46 +45,34 @@ The following development was performed to complete the project:
 
 7. Demonstrate Functionity using Streamlit User Interface.
 
-## Evaluation Evidence
+## StreamLit User Interface - Functional Demonstration
 
-### 1. Compile the contracts by using Remix.
+* Compile the contracts by using Remix
 
-* Successful Compile of KaseiCoin.sol
+![Compile Contract](Images/Artwork_Solidity_Compile.png)
 
+* Successful Deploy of Smart Contract on Remix
+
+![Deployed Contract](Images/Remix_Deployed_Contract.png)
+
+* ART Registry Demonstration on Streamlit Front-End UI
+
+![ART Registry Demo](Images/Phoenix_Register_Artwork.png)
+
+* Successful pin of ART to Pinata Gateway and creation of JSON
+
+![JSON NFT](Images/JSON_NFT.png)
 ![Pinata](Images/Pinata_jsonNFT.png)
 
-* Successful Compile of KaseiCoinCrowdsale.sol Minter Contract
+* Successful Transfer of ART Token on Streamlit Front-End UI
 
-![KaseiCoinCrowdsale Compiled](Images/KaseiCoinCrowdsale_Minter.png)
+![Transfer Hash](Images/Transfer_Hash.png)
 
-* Successful Compile of KaseiCoinCrowdsale.sol Deployer Contract
+* Review Meta Mask for successful transfer
 
-![KaseiCoinCrowdsale Compiled](Images/KaseiCoinCrowdsale_Deployer.png)
+![MetaMask Transfer](Images/MetaMask_ArtRegister_Transfer.png)
 
-### 2. Deploy and Test the crowdsale to a local blockchain by using Remix, MetaMask, and Ganache.
+* Review Transaction Logs on Etherscan
 
-* Successful Deploy of KaseiCoinCrowdsale.sol Deployer Contract
-
-![KaseiCoinCrowdsale Deployment](Images/KaseiCoinCrowdsaleDeployer_Deployed.png)
-
-* Kasei Crowdsale Address and Token Address
-
-![Crowdsale Address](Images/Crowdsale_Address_Token.png)
-
-2. Test the functionality of the crowdsale by using test accounts to buy new tokens and then checking the balances of those accounts.
-
-* Crowdsale Launch, ready to buy Tokens
-
-![Crowdsale Launch](Images/Crowdsale_buyTokens.png)
-
-* Balance of Account that purchased the crowdsale token
-
-![Crowdsale Launch](Images/Crowdsale_balancePurchase.png)
-
-3. Review the total supply of minted tokens and the amount of wei that the crowdsale contract has raised.
-
-* Total supply of minted tokens the crowdsale has raised
-
-![Crowdsale Launch](Images/Crowdsale_totalSupply.png)
-
+![Etherscan Logs](Images/Etherscan_Logs.png)
 ---
